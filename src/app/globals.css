@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Navy + dark-red dashboard theme (see project UI-restyle plan) -- dark is
+   the only/default theme for now, no light-mode toggle exists yet, so
+   these are the values under :root directly rather than behind a .dark
+   class. Colors are approximations read off reference screenshots, not
+   exact source values. */
+@layer base {
+  :root {
+    --background: 224 39% 7%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 35% 12%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 35% 12%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 346 77% 32%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 222 20% 18%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 222 20% 16%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 222 20% 18%;
+    --accent-foreground: 210 40% 96%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+
+    --border: 222 20% 20%;
+    --input: 222 20% 20%;
+    --ring: 346 77% 40%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+  html {
+    /* Tells the browser to render native form controls (select, checkbox,
+       date picker, scrollbars) with dark-mode chrome by default -- without
+       this, a <select> on a still-unstyled (deferred) page keeps its
+       browser-default white background while inheriting this theme's light
+       text color, making the text unreadable (white-on-white). */
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
